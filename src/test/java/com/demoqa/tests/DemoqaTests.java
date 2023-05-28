@@ -1,2 +1,4 @@
-package com.demoqa.tests;public class DemoqaTests {
+package com.demoqa.tests;
+
+public class DemoqaTests {
 }
