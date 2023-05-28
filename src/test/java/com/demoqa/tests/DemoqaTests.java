@@ -12,6 +12,7 @@ public class DemoqaTests {
     String name = "Evgenii";
     String lastName = "Klimashin";
     String userEmail = "evgeniik@gmail.com";
+    String userNumber = "88005553535";
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -25,5 +26,8 @@ public class DemoqaTests {
         $("input#lastName").setValue(lastName);
         $("input#userEmail").setValue(userEmail);
         $("#genterWrapper").$(byText("Male")).click();
+        $("input#userNumber").setValue(userNumber);
+        $("div.react-datepicker-wrapper").click();
+        $(".react-datepicker__year-select").selectOptionByValue("1999");
     }
 }
