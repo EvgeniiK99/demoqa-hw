@@ -26,49 +26,47 @@ public class DemoqaTests {
 
     }
     @Test
-    void Demoqa() {
+    void demoqa() {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
         $("#firstName").setValue(name);
-        $("input#lastName").setValue(lastName);
-        $("input#userEmail").setValue(userEmail);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(userEmail);
         $("#genterWrapper").$(byText(gender)).click();
-        $("input#userNumber").setValue(userNumber);
+        $("#userNumber").setValue(userNumber);
 
-        $("div.react-datepicker-wrapper").click();
+        $(".react-datepicker-wrapper").click();
         $(".react-datepicker__year-select").selectOptionByValue("1999");
         $(".react-datepicker__month-select").selectOptionContainingText("November");
-        $("div.react-datepicker__week").$(byText("2")).click();
+        $(".react-datepicker__week").$(byText("2")).click();
 
-        $("div#subjectsWrapper").$("#subjectsInput").setValue("computer").pressEnter();
+        $("#subjectsWrapper").$("#subjectsInput").setValue("computer").pressEnter();
 
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("input#uploadPicture").uploadFromClasspath(imageURL);
-        $("#currentAddress-wrapper").$("textarea.form-control").setValue(currentAddress);
+        $("#uploadPicture").uploadFromClasspath(imageURL);
+        $("#currentAddress-wrapper").$("#currentAddress").setValue(currentAddress);
 
-        $("div#stateCity-wrapper").$("div#state").click();
-        $("div#stateCity-wrapper").$("div#state").$(byText("Uttar Pradesh")).click();
+        $("#stateCity-wrapper").$("#state").click();
+        $("#stateCity-wrapper").$("#state").$(byText("Uttar Pradesh")).click();
 
-        $("div#stateCity-wrapper").$("div#city").click();
-        $("div#stateCity-wrapper").$("div#city").$(byText("Agra")).click();
+        $("#stateCity-wrapper").$("#city").click();
+        $("#stateCity-wrapper").$("#city").$(byText("Agra")).click();
 
         $("button#submit").click();
 
-        $("div.modal-header").shouldHave(text("Thanks for submitting the form"));
-        $("div.table-responsive").find(byText("Student Name")).sibling(0).shouldHave(text(name + " " + lastName));
-        $("div.table-responsive").find(byText("Student Email")).sibling(0).shouldHave(text(userEmail));
-        $("div.table-responsive").find(byText("Gender")).sibling(0).shouldHave(text(gender));
-        $("div.table-responsive").find(byText("Mobile")).sibling(0).shouldHave(text(userNumber));
-        $("div.table-responsive").find(byText("Gender")).sibling(0).shouldHave(text(gender));
-        $("div.table-responsive").find(byText("Date of Birth")).sibling(0).shouldHave(text("02 November,1999"));
-        $("div.table-responsive").find(byText("Subjects")).sibling(0).shouldHave(text("Computer Science"));
-        $("div.table-responsive").find(byText("Hobbies")).sibling(0).shouldHave(text("Sports"));
-        $("div.table-responsive").find(byText("Picture")).sibling(0).shouldHave(text(imageURL));
-        $("div.table-responsive").find(byText("Address")).sibling(0).shouldHave(text(currentAddress));
-        $("div.table-responsive").find(byText("State and City")).sibling(0).shouldHave(text("Uttar Pradesh Agra"));
-
-        $("button#closeLargeModal").click();
+        $(".modal-header").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").find(byText("Student Name")).sibling(0).shouldHave(text(name + " " + lastName));
+        $(".table-responsive").find(byText("Student Email")).sibling(0).shouldHave(text(userEmail));
+        $(".table-responsive").find(byText("Gender")).sibling(0).shouldHave(text(gender));
+        $(".table-responsive").find(byText("Mobile")).sibling(0).shouldHave(text(userNumber));
+        $(".table-responsive").find(byText("Gender")).sibling(0).shouldHave(text(gender));
+        $(".table-responsive").find(byText("Date of Birth")).sibling(0).shouldHave(text("02 November,1999"));
+        $(".table-responsive").find(byText("Subjects")).sibling(0).shouldHave(text("Computer Science"));
+        $(".table-responsive").find(byText("Hobbies")).sibling(0).shouldHave(text("Sports"));
+        $(".table-responsive").find(byText("Picture")).sibling(0).shouldHave(text(imageURL));
+        $(".table-responsive").find(byText("Address")).sibling(0).shouldHave(text(currentAddress));
+        $(".table-responsive").find(byText("State and City")).sibling(0).shouldHave(text("Uttar Pradesh Agra"));
     }
 }
