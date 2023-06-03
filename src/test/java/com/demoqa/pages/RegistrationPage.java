@@ -2,13 +2,17 @@ package com.demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
+import com.demoqa.pages.components.ResultTable;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
+    ResultTable resultTable = new ResultTable();
+
 
     SelenideElement
             firstNameInput = $("#firstName"),
@@ -34,6 +38,7 @@ public class RegistrationPage {
 
     public RegistrationPage setFirstName(String firstName) {
         firstNameInput.setValue(firstName);
+
         return this;
     }
 
@@ -94,8 +99,25 @@ public class RegistrationPage {
         return this;
     }
 
-    public void submit() {
+    public RegistrationPage submit() {
         submitButton.click();
+        return this;
     }
 
+    public RegistrationPage checkName (String name, String lastName) {
+        resultTable.checkName(name, lastName);
+        return this;
+    }
+    public RegistrationPage checkEmail (String userEmail) {
+        resultTable.checkEmail(userEmail);
+        return this;
+    }
+    public RegistrationPage checkNumber(String userNumber) {
+        resultTable.checkNumber(userNumber);
+        return this;
+    }
+//    public RegistrationPage checkGender(String userGender) {
+//        resultTable.checkGender(userGender);
+//        return this;
+//    }
 }
