@@ -30,6 +30,7 @@ public class RegistrationPage {
         open("/automation-practice-form");
         return this;
     }
+
     public RegistrationPage removeAdsAndFooter() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -103,10 +104,12 @@ public class RegistrationPage {
         submitButton.click();
         return this;
     }
+
     public RegistrationPage checkTableHeader() {
         resultTableComponent.checkHeader("Thanks for submitting the form");
         return this;
     }
+
     public RegistrationPage checkName(String name, String lastName) {
         String fullName = format("%s %s", name, lastName);
         resultTableComponent.checkTable("Student Name", fullName);
@@ -114,7 +117,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkEmail(String userEmail) {
-        resultTableComponent.checkTable("Student Email" , userEmail);
+        resultTableComponent.checkTable("Student Email", userEmail);
         return this;
     }
 
