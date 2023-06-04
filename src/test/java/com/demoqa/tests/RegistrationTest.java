@@ -23,6 +23,7 @@ public class RegistrationTest extends TestBase {
     void demoqa() {
         registrationPage
                 .openPage()
+                .removeAdsAndFooter()
                 .setFirstName(name)
                 .setLastName(lastName)
                 .setUserEmail(userEmail)
@@ -36,6 +37,7 @@ public class RegistrationTest extends TestBase {
                 .setState(userState)
                 .setCity(userCity)
                 .submit()
+                .checkTableHeader()
                 .checkName(name, lastName)
                 .checkEmail(userEmail)
                 .checkGender(userGender)
