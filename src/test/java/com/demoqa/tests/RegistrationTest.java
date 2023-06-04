@@ -2,6 +2,8 @@ package com.demoqa.tests;
 
 import org.junit.jupiter.api.Test;
 
+import static java.lang.String.format;
+
 public class RegistrationTest extends TestBase {
 
     String name = "Evgenii",
@@ -38,15 +40,15 @@ public class RegistrationTest extends TestBase {
                 .setCity(userCity)
                 .submit()
                 .checkTableHeader()
-                .checkName(name, lastName)
-                .checkEmail(userEmail)
-                .checkGender(userGender)
-                .checkNumber(userNumber)
-                .checkDateOfBirth(userDay, userMonth, userYear)
-                .checkSubjects(userSubjects)
-                .checkHobbies(userHobbies)
-                .checkImage(imageURL)
-                .checkAddress(currentAddress)
-                .checkStateCity(userState, userCity);
+                .checkValue("Student Name", format("%s %s", name, lastName))
+                .checkValue("Student Email", userEmail)
+                .checkValue("Gender", userGender)
+                .checkValue("Mobile", userNumber)
+                .checkValue("Date of Birth", format("%s %s,%s", userDay, userMonth, userYear))
+                .checkValue("Subjects", userSubjects)
+                .checkValue("Hobbies", userHobbies)
+                .checkValue("Picture", imageURL)
+                .checkValue("Address", currentAddress)
+                .checkValue("State and City", format("%s %s", userState, userCity));
     }
 }

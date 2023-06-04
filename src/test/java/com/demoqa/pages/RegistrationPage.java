@@ -7,7 +7,6 @@ import com.demoqa.pages.components.ResultTableComponent;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
-import static java.lang.String.format;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
@@ -110,56 +109,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkName(String name, String lastName) {
-        String fullName = format("%s %s", name, lastName);
-        resultTableComponent.checkTable("Student Name", fullName);
-        return this;
-    }
-
-    public RegistrationPage checkEmail(String userEmail) {
-        resultTableComponent.checkTable("Student Email", userEmail);
-        return this;
-    }
-
-    public RegistrationPage checkGender(String userGender) {
-        resultTableComponent.checkTable("Gender", userGender);
-        return this;
-    }
-
-    public RegistrationPage checkNumber(String userNumber) {
-        resultTableComponent.checkTable("Mobile", userNumber);
-        return this;
-    }
-
-    public RegistrationPage checkDateOfBirth(String day, String month, String year) {
-        String userDateOfBirth = format("%s %s,%s", day, month, year);
-        resultTableComponent.checkTable("Date of Birth", userDateOfBirth);
-        return this;
-    }
-
-    public RegistrationPage checkSubjects(String userSubjects) {
-        resultTableComponent.checkTable("Subjects", userSubjects);
-        return this;
-    }
-
-    public RegistrationPage checkHobbies(String userHobbies) {
-        resultTableComponent.checkTable("Hobbies", userHobbies);
-        return this;
-    }
-
-    public RegistrationPage checkImage(String imageURL) {
-        resultTableComponent.checkTable("Picture", imageURL);
-        return this;
-    }
-
-    public RegistrationPage checkAddress(String userAddress) {
-        resultTableComponent.checkTable("Address", userAddress);
-        return this;
-    }
-
-    public RegistrationPage checkStateCity(String userState, String userCity) {
-        String userStateCity = format("%s %s", userState, userCity);
-        resultTableComponent.checkTable("State and City", userStateCity);
+    public RegistrationPage checkValue(String elementName, String userAddress) {
+        resultTableComponent.checkTable(elementName, userAddress);
         return this;
     }
 }
