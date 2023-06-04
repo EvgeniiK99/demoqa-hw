@@ -6,7 +6,8 @@ public class RegistrationTest extends TestBase {
 
     String name = "Evgenii",
             lastName = "Klimashin",
-            userEmail = "evgeniik@gmail.com",
+
+    userEmail = "evgeniik@gmail.com",
             userGender = "Male",
             userNumber = "8800555353",
             userDay = "02",

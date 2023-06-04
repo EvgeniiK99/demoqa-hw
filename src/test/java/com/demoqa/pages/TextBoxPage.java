@@ -13,33 +13,39 @@ public class TextBoxPage {
             permanentAddressInput = $("#permanentAddress-wrapper").$("#permanentAddress"),
             submitButton = $("#submit"),
 
-            nameResult = $("#output #name"),
+    nameResult = $("#output #name"),
             emailResult = $("#output #email"),
             currentAddressResult = $("#output #currentAddress"),
             permanentAddressResult = $("#output #permanentAddress");
+
     public TextBoxPage openPage() {
         open("/text-box");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
-    public TextBoxPage setFullName(String fullName){
+
+    public TextBoxPage setFullName(String fullName) {
         fullNameInput.setValue(fullName);
         return this;
     }
-    public TextBoxPage setEmail(String userEmail){
+
+    public TextBoxPage setEmail(String userEmail) {
         emailInput.setValue(userEmail);
         return this;
     }
-    public TextBoxPage setCurrentAddress(String userCurrentAddress){
+
+    public TextBoxPage setCurrentAddress(String userCurrentAddress) {
         currentAddressInput.setValue(userCurrentAddress);
         return this;
     }
-    public TextBoxPage setPermanentAddress(String userPermanentAddress){
+
+    public TextBoxPage setPermanentAddress(String userPermanentAddress) {
         permanentAddressInput.setValue(userPermanentAddress);
         return this;
     }
-    public TextBoxPage submit(){
+
+    public TextBoxPage submit() {
         submitButton.click();
         return this;
     }
