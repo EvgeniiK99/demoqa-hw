@@ -11,56 +11,58 @@ public class ResultTable {
     SelenideElement
             header = $(".modal-header"),
             resultTable = $(".table-responsive"),
-            studentName = resultTable.find(byText("Student Name")),
-            studentEmail = resultTable.find(byText("Student Email")),
-            studentGender = resultTable.find(byText("Gender")),
-            studentNumber = resultTable.find(byText("Mobile")),
-            studentDateOfBirth = resultTable.find(byText("Date of Birth")),
-            studentSubjects = resultTable.find(byText("Subjects")),
-            studentHobbies = resultTable.find(byText("Hobbies")),
-            uploadedImageURL = resultTable.find(byText("Picture")),
-            studentAddress = resultTable.find(byText("Address")),
-            studentStateCity= resultTable.find(byText("State and City"));
+            studentName = resultTable.find(byText("Student Name")).sibling(0),
+            studentEmail = resultTable.find(byText("Student Email")).sibling(0),
+            studentGender = resultTable.find(byText("Gender")).sibling(0),
+            studentNumber = resultTable.find(byText("Mobile")).sibling(0),
+            studentDateOfBirth = resultTable.find(byText("Date of Birth")).sibling(0),
+            studentSubjects = resultTable.find(byText("Subjects")).sibling(0),
+            studentHobbies = resultTable.find(byText("Hobbies")).sibling(0),
+            uploadedImageURL = resultTable.find(byText("Picture")).sibling(0),
+            studentAddress = resultTable.find(byText("Address")).sibling(0),
+            studentStateCity = resultTable.find(byText("State and City")).sibling(0);
 
-
-
-    public ResultTable checkHeader (String textHeader) {
+    public void checkHeader(String textHeader) {
         header.shouldHave(text(textHeader));
-        return this;
     }
 
-    public ResultTable checkName (String name, String lastName) {
-        studentName.sibling(0).shouldHave(text(format("%s %s", name, lastName)));
-        return this;
-    }
-    public ResultTable checkEmail(String userEmail) {
-        studentEmail.sibling(0).shouldHave(text(userEmail));
-        return this;
-    }
-    public ResultTable checkGender(String userGender) {
-        studentGender.sibling(0).shouldHave(text(userGender));
-        return this;
-    }
-    public ResultTable checkNumber(String userNumber) {
-        studentNumber.sibling(0).shouldHave(text(userNumber));
-        return this;
-    }
-    public ResultTable checkDateOfBirth(String userDateOfBirth) {
-        studentDateOfBirth.sibling(0).shouldHave(text(userDateOfBirth));
-        return this;
-    }
-    public ResultTable checkSubjects(String userSubjects) {
-        studentSubjects.sibling(0).shouldHave(text(userSubjects));
-        return this;
+    public void checkName(String name, String lastName) {
+        studentName.shouldHave(text(format("%s %s", name, lastName)));
     }
 
+    public void checkEmail(String userEmail) {
+        studentEmail.shouldHave(text(userEmail));
+    }
 
-//      .shouldHave(text("Thanks for submitting the form"));
+    public void checkGender(String userGender) {
+        studentGender.shouldHave(text(userGender));
+    }
 
-//    .sibling(0).shouldHave(text("02 November,1999"));
-//   .find(byText("Subjects")).sibling(0).shouldHave(text("Computer Science"));
-//    .find(byText("Hobbies")).sibling(0).shouldHave(text("Sports"));
-//   .find(byText("Picture")).sibling(0).shouldHave(text(imageURL));
-//    .find(byText("Address")).sibling(0).shouldHave(text(currentAddress));
-//   .find(byText("State and City")).sibling(0).shouldHave(text(format("%s %s", state, city)));
+    public void checkNumber(String userNumber) {
+        studentNumber.shouldHave(text(userNumber));
+    }
+
+    public void checkDateOfBirth(String userDateOfBirth) {
+        studentDateOfBirth.shouldHave(text(userDateOfBirth));
+    }
+
+    public void checkSubjects(String userSubjects) {
+        studentSubjects.shouldHave(text(userSubjects));
+    }
+
+    public void checkHobbies(String userHobbies) {
+        studentHobbies.shouldHave(text(userHobbies));
+    }
+
+    public void checkImage(String imageURL) {
+        uploadedImageURL.shouldHave(text(imageURL));
+    }
+
+    public void checkAddress(String userAddress) {
+        studentAddress.shouldHave(text(userAddress));
+    }
+
+    public void checkStateCity(String userStateCity) {
+        studentStateCity.shouldHave(text(userStateCity));
+    }
 }

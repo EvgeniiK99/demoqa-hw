@@ -2,23 +2,22 @@ package com.demoqa.tests;
 
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static java.lang.String.format;
-
 public class RegistrationTest extends TestBase {
 
     String name = "Evgenii",
             lastName = "Klimashin",
             userEmail = "evgeniik@gmail.com",
-            gender = "Male",
+            userGender = "Male",
             userNumber = "8800555353",
+            userDay = "02",
+            userMonth = "November",
+            userYear = "1999",
+            userSubjects = "Computer Science",
+            userHobbies = "Sports",
             imageURL = "selenideLogo.png",
             currentAddress = "94 Smith Ln Bunnell, Florida(FL), 32110",
-            state = "Haryana",
-            city = "Karnal";
-
+            userState = "Haryana",
+            userCity = "Karnal";
 
     @Test
     void demoqa() {
@@ -27,24 +26,25 @@ public class RegistrationTest extends TestBase {
                 .setFirstName(name)
                 .setLastName(lastName)
                 .setUserEmail(userEmail)
-                .setUserGender(gender)
+                .setUserGender(userGender)
                 .setUserNumber(userNumber)
-                .setDateOfBirth("2", "November", "1999")
-                .setSubjects("computer")
-                .setHobbies("Sports")
+                .setDateOfBirth(userDay, userMonth, userYear)
+                .setSubjects(userSubjects)
+                .setHobbies(userHobbies)
                 .uploadImage(imageURL)
                 .setCurrentAddress(currentAddress)
-                .setState(state)
-                .setCity(city)
+                .setState(userState)
+                .setCity(userCity)
                 .submit()
                 .checkName(name, lastName)
                 .checkEmail(userEmail)
-                .checkNumber(userNumber);
-//                .checkGender(gender);
-
-
-
-
-
+                .checkGender(userGender)
+                .checkNumber(userNumber)
+                .checkDateOfBirth(userDay, userMonth, userYear)
+                .checkSubjects(userSubjects)
+                .checkHobbies(userHobbies)
+                .checkImage(imageURL)
+                .checkAddress(currentAddress)
+                .checkStateCity(userState, userCity);
     }
 }
