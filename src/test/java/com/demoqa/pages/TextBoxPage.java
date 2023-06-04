@@ -19,6 +19,9 @@ public class TextBoxPage {
 
     public TextBoxPage openPage() {
         open("/text-box");
+        return this;
+    }
+    public TextBoxPage removeAdsAndFooter() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
