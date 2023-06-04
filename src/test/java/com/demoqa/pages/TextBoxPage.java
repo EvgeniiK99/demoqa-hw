@@ -12,8 +12,7 @@ public class TextBoxPage {
             currentAddressInput = $("#currentAddress-wrapper").$("#currentAddress"),
             permanentAddressInput = $("#permanentAddress-wrapper").$("#permanentAddress"),
             submitButton = $("#submit"),
-
-    nameResult = $("#output #name"),
+            nameResult = $("#output #name"),
             emailResult = $("#output #email"),
             currentAddressResult = $("#output #currentAddress"),
             permanentAddressResult = $("#output #permanentAddress");
