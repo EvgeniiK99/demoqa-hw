@@ -2,7 +2,7 @@ package com.demoqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
-import com.demoqa.pages.components.ResultTable;
+import com.demoqa.pages.components.ResultTableComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -11,7 +11,7 @@ import static java.lang.String.format;
 
 public class RegistrationPage {
     CalendarComponent calendar = new CalendarComponent();
-    ResultTable resultTable = new ResultTable();
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
     SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -28,6 +28,10 @@ public class RegistrationPage {
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
+        return this;
+    }
+
+    public RegistrationPage removeAdsAndFooter() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
@@ -98,59 +102,64 @@ public class RegistrationPage {
 
     public RegistrationPage submit() {
         submitButton.click();
-        resultTable.checkHeader("Thanks for submitting the form");
+        return this;
+    }
+
+    public RegistrationPage checkTableHeader() {
+        resultTableComponent.checkHeader("Thanks for submitting the form");
         return this;
     }
 
     public RegistrationPage checkName(String name, String lastName) {
-        resultTable.checkName(name, lastName);
+        String fullName = format("%s %s", name, lastName);
+        resultTableComponent.checkTable("Student Name", fullName);
         return this;
     }
 
     public RegistrationPage checkEmail(String userEmail) {
-        resultTable.checkEmail(userEmail);
+        resultTableComponent.checkTable("Student Email", userEmail);
         return this;
     }
 
     public RegistrationPage checkGender(String userGender) {
-        resultTable.checkGender(userGender);
+        resultTableComponent.checkTable("Gender", userGender);
         return this;
     }
 
     public RegistrationPage checkNumber(String userNumber) {
-        resultTable.checkNumber(userNumber);
+        resultTableComponent.checkTable("Mobile", userNumber);
         return this;
     }
 
     public RegistrationPage checkDateOfBirth(String day, String month, String year) {
         String userDateOfBirth = format("%s %s,%s", day, month, year);
-        resultTable.checkDateOfBirth(userDateOfBirth);
+        resultTableComponent.checkTable("Date of Birth", userDateOfBirth);
         return this;
     }
 
     public RegistrationPage checkSubjects(String userSubjects) {
-        resultTable.checkSubjects(userSubjects);
+        resultTableComponent.checkTable("Subjects", userSubjects);
         return this;
     }
 
     public RegistrationPage checkHobbies(String userHobbies) {
-        resultTable.checkHobbies(userHobbies);
+        resultTableComponent.checkTable("Hobbies", userHobbies);
         return this;
     }
 
     public RegistrationPage checkImage(String imageURL) {
-        resultTable.checkImage(imageURL);
+        resultTableComponent.checkTable("Picture", imageURL);
         return this;
     }
 
     public RegistrationPage checkAddress(String userAddress) {
-        resultTable.checkAddress(userAddress);
+        resultTableComponent.checkTable("Address", userAddress);
         return this;
     }
 
     public RegistrationPage checkStateCity(String userState, String userCity) {
         String userStateCity = format("%s %s", userState, userCity);
-        resultTable.checkStateCity(userStateCity);
+        resultTableComponent.checkTable("State and City", userStateCity);
         return this;
     }
 }
