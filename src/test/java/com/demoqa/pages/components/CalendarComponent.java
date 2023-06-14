@@ -8,7 +8,7 @@ import static java.lang.String.format;
 public class CalendarComponent {
     SelenideElement
             openDatePicker = $(".react-datepicker-wrapper"),
-            dayInput = $(".react-datepicker__week"),
+            dayInput = $(".react-datepicker__month"),
             monthInput = $(".react-datepicker__month-select"),
             yearInput = $(".react-datepicker__year-select");
 
