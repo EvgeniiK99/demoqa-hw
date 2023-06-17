@@ -6,18 +6,18 @@ import static com.demoqa.utils.RandomUtils.*;
 public class TestData {
 
     public static String
-            name = randomFirstName(),
-            lastName = randomLastName(),
-            userEmail = randomEmail(),
-            userGender = randomGender(),
-            userNumber = randomNumber(),
-            userDay = randomDay(),
-            userMonth = randomMonth(),
-            userYear = randomYear(),
-            userSubjects = randomSubjects(),
-            userHobbies = randomHobbies(),
-            imageURL = randomImageURL(),
-            currentAddress = randomAddress(),
-            userState = randomState(),
-            userCity = randomCity(userState);
+            name = getRandomFirstName(),
+            lastName = getRandomLastName(),
+            userEmail = getRandomEmail(),
+            userGender = getRandomGender(),
+            userNumber = getRandomNumber(),
+            userDay = getRandomDay(),
+            userMonth = getRandomMonth(),
+            userYear = getRandomYear(),
+            userSubjects = getRandomSubjects(),
+            userHobbies = getRandomHobbies(),
+            imageURL = getRandomImageURL(),
+            currentAddress = getRandomAddress(),
+            userState = getRandomState(),
+            userCity = getRandomCity(userState);
 }

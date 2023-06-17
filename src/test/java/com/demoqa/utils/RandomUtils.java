@@ -9,37 +9,27 @@ public class RandomUtils {
 
     static Faker faker = new Faker();
     static Random random = new Random();
-
-    public static int randomInt(String[] array) {
-        return (int) (Math.random() * (array.length));
-    }
-
-    public static String randomFirstName() {
+    public static String getRandomFirstName() {
         return faker.name().firstName();
     }
 
-    public static String randomLastName() {
+    public static String getRandomLastName() {
         return faker.name().lastName();
     }
 
-    public static String randomEmail() {
+    public static String getRandomEmail() {
         return faker.internet().emailAddress();
     }
 
-    public static String randomGender() {
-        String[] genders = {"Male", "Female", "Other"};
-        return genders[randomInt(genders)];
+    public static String getRandomGender() {
+        return faker.options().option("Male", "Female", "Other");
     }
 
-    public static String randomNumber() {
-        String randomNumber = "";
-        for (int i = 0; i <= 9; i++) {
-            randomNumber += String.valueOf(random.nextInt(0, 9));
-        }
-        return randomNumber;
+    public static String getRandomNumber() {
+        return faker.phoneNumber().subscriberNumber(10);
     }
 
-    public static String randomDay() {
+    public static String getRandomDay() {
 
         int randomInt = random.nextInt(28) + 1;
         String selectedDay;
@@ -51,52 +41,45 @@ public class RandomUtils {
         return selectedDay;
     }
 
-    public static String randomMonth() {
-        String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-        return months[randomInt(months)];
+    public static String getRandomMonth() {
+        return faker.options().option("January", "February", "March",
+                "April", "May", "June",
+                "July", "August", "September",
+                "October", "November", "December");
     }
 
-    public static String randomYear() {
+    public static String getRandomYear() {
         int nowYear = Integer.parseInt(String.valueOf(Year.now()));
         return String.valueOf(faker.number().numberBetween(1920, nowYear - 1));
     }
 
-    public static String randomSubjects() {
-        String[] hobbies = {"Computer Science", "English", "Economics"};
-        return hobbies[randomInt(hobbies)];
+    public static String getRandomSubjects() {
+        return faker.options().option("Computer Science", "English", "Economics");
     }
 
-    public static String randomHobbies() {
-        String[] hobbies = {"Sports", "Reading", "Music"};
-        return hobbies[randomInt(hobbies)];
+    public static String getRandomHobbies() {
+        return faker.options().option("Sports", "Reading", "Music");
     }
 
-    public static String randomImageURL() {
-        String[] imageURL = {"selenideLogo.png", "googleLogo.png"};
-        return imageURL[randomInt(imageURL)];
+    public static String getRandomImageURL() {
+        return faker.options().option("selenideLogo.png", "googleLogo.png");
     }
 
-    public static String randomAddress() {
+    public static String getRandomAddress() {
         return faker.address().fullAddress();
     }
 
-    public static String randomState() {
-        String[] states = {"NCR", "Uttar Pradesh", "Haryana"};
-        return states[randomInt(states)];
+    public static String getRandomState() {
+        return faker.options().option("NCR", "Uttar Pradesh", "Haryana");
     }
 
-    public static String randomCity(String state) {
-        String[] citiesNCR = {"Delhi", "Gurgaon", "Noida"};
-        String[] citiesUP = {"Agra", "Lucknow", "Merrut"};
-        String[] citiesHaryana = {"Karnal", "Panipat"};
-        String selectedCity;
+    public static String getRandomCity(String state) {
         if (state == "NCR") {
-            selectedCity = citiesNCR[randomInt(citiesNCR)];
+            return faker.options().option("Delhi", "Gurgaon", "Noida");
         } else if (state == "Uttar Pradesh") {
-            selectedCity = citiesUP[randomInt(citiesUP)];
+            return faker.options().option("Agra", "Lucknow", "Merrut");
         } else {
-            selectedCity = citiesHaryana[randomInt(citiesHaryana)];
+            return faker.options().option("Karnal", "Panipat");
         }
-        return selectedCity;
     }
 }
