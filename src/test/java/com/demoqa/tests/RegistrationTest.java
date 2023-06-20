@@ -3,14 +3,26 @@ package com.demoqa.tests;
 import org.junit.jupiter.api.Test;
 
 import static com.demoqa.tests.TestData.*;
+import static com.demoqa.utils.RandomUtils.*;
 import static java.lang.String.format;
 
 public class RegistrationTest extends TestBase {
-
-
-
     @Test
-    void demoqa() {
+    void positiveCheckRegistrationDemoqa() {
+        name = getRandomFirstName();
+        lastName = getRandomLastName();
+        userEmail = getRandomEmail();
+        userGender = getRandomGender();
+        userNumber = getRandomNumber();
+        userDay = getRandomDay();
+        userMonth = getRandomMonth();
+        userYear = getRandomYear();
+        userSubjects = getRandomSubjects();
+        userHobbies = getRandomHobbies();
+        imageURL = getRandomImageURL();
+        currentAddress = getRandomAddress();
+        userState = getRandomState();
+        userCity = getRandomCity(userState);
         registrationPage
                 .openPage()
                 .removeAdsAndFooter()

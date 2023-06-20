@@ -9,6 +9,7 @@ public class RandomUtils {
 
     static Faker faker = new Faker();
     static Random random = new Random();
+
     public static String getRandomFirstName() {
         return faker.name().firstName();
     }
@@ -74,9 +75,9 @@ public class RandomUtils {
     }
 
     public static String getRandomCity(String state) {
-        if (state == "NCR") {
+        if (state.equals("NCR")) {
             return faker.options().option("Delhi", "Gurgaon", "Noida");
-        } else if (state == "Uttar Pradesh") {
+        } else if (state.equals("Uttar Pradesh")) {
             return faker.options().option("Agra", "Lucknow", "Merrut");
         } else {
             return faker.options().option("Karnal", "Panipat");
