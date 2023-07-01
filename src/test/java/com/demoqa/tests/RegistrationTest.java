@@ -1,5 +1,7 @@
 package com.demoqa.tests;
 
+import io.qameta.allure.*;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.demoqa.tests.TestData.*;
@@ -7,8 +9,14 @@ import static com.demoqa.utils.RandomUtils.*;
 import static java.lang.String.format;
 
 public class RegistrationTest extends TestBase {
+    @Owner("Klimashin Evgenii")
+    @Link(value = "Git repo", url = "https://github.com/EvgeniiK99/demoqa-hw/tree/mainTest2")
+    @Feature("Registration demoQA")
+    @Story("Successful registration")
+    @Severity(SeverityLevel.BLOCKER)
+    @DisplayName("Successful registration test, all fields filled")
     @Test
-    void positiveCheckRegistrationDemoqa() {
+    void successfulRegistrationDemoqaTest() {
         name = getRandomFirstName();
         lastName = getRandomLastName();
         userEmail = getRandomEmail();
