@@ -2,6 +2,7 @@ package com.demoqa.tests;
 
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.demoqa.tests.TestData.*;
@@ -15,6 +16,7 @@ public class RegistrationTest extends TestBase {
     @Story("Successful registration")
     @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Successful registration test, all fields filled")
+    @Tag("registration")
     @Test
     void successfulRegistrationDemoqaTest() {
         name = getRandomFirstName();
