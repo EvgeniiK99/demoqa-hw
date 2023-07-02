@@ -24,8 +24,9 @@ public class TestBase {
         Configuration.browserSize = System.getProperty("windowSize", "1920x1080");
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://" + System.getProperty("domain", "demoqa.com");
-        Configuration.remote = "https://user1:1234@" + System.getProperty("wdhost", "selenoid.autotests.cloud") + "/wd/hub";
-        Configuration.browserVersion = System.getProperty("chromeVersion", "114.0");
+//        Configuration.remote = "https://user1:1234@" + System.getProperty("wdhost", "selenoid.autotests.cloud") + "/wd/hub";
+        Configuration.remote = System.getProperty("wdhost", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+//        Configuration.browserVersion = System.getProperty("chromeVersion", "114.0");
 
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
 //        capabilities.setCapability("enableVNC", true);
