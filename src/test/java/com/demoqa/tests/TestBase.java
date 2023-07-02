@@ -25,7 +25,7 @@ public class TestBase {
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://" + System.getProperty("domain", "demoqa.com");
         Configuration.remote = System.getProperty("wdhost", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
-//        Configuration.browserVersion = System.getProperty("chromeVersion", "114.0");
+        Configuration.browserVersion = System.getProperty("chromeVersion", "114.0");
 
 //        DesiredCapabilities capabilities = new DesiredCapabilities();
 //        capabilities.setCapability("enableVNC", true);
